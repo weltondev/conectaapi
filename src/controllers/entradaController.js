@@ -20,6 +20,7 @@ const entradaController = {
       const matriculaExiste = await Matricula.findOne({ matricula });
 
       if(!matriculaExiste) {
+        console.log(matriculaExiste)
         return res.status(400).json(`Matrícula não cadastrada!`);
       }
 
