@@ -18,7 +18,7 @@ const entradaController = {
       const { matricula, data } = req.body;
       // const entrada = await Entrada.findOne({ matricula });
       const matriculaExiste = await Matricula.findOne({ matricula });
-
+      
       if(!matriculaExiste) {
         return res.status(400).send(`Matrícula não cadastrada!`);
       }
