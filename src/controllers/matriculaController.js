@@ -3,7 +3,7 @@ const Matricula = require('../models/Matricula');
 const matriculaController = {
   async listar(req, res) {
     try {
-      const matriculas = await Matricula.find();
+      const matriculas = await Matricula.find({});
       
       res.status(200).send({ matriculas });
     } catch (error) {
