@@ -46,7 +46,7 @@ const entradaController = {
       
       await Entrada.findByIdAndUpdate(id, req.body);
 
-      res.status(200).send(`Registro atualizado com sucesso!`);
+      res.status(200).json(`Registro atualizado com sucesso!`);
     } catch (error) {
       console.error(error);
       res.status(400).json("Falha ao atualizar usuário");
@@ -63,10 +63,10 @@ const entradaController = {
        }
        await Entrada.findByIdAndDelete(id);
 
-       return res.status(200).send(`Registro removido com sucesso!`);
+       return res.status(200).json(`Registro removido com sucesso!`);
     } catch (error) {
         console.log(error);
-        res.status(400).send(`Falha ao remover registro tente novamnte!`);
+        res.status(400).json(`Falha ao remover registro tente novamnte!`);
     }
 }
 }
