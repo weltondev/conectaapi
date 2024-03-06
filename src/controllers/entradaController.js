@@ -25,7 +25,7 @@ const entradaController = {
 
       await Entrada.create({ matricula, data, observacao });
 
-      res.status(201).send('Matrícula cadastrada com sucesso!');
+      res.status(201).json('Matrícula cadastrada com sucesso!');
     } catch (error) {
       console.log(error);
       res.status(400).send(error.message);
