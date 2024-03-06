@@ -13,6 +13,8 @@ const entradaController = {
     }
   },
 
+
+
   async cadastrar(req, res) {
     try {
       const { matricula, data, observacao } = req.body;

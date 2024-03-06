@@ -12,6 +12,23 @@ const matriculaController = {
     }
   },
 
+  async listarId(req, res){
+    try {
+      const { id } = req.params;
+      const matricula = await Matricula.findById(id);
+      if(!matricula) {
+        res.status(400).json('Matrícula não encontrada!');
+      }
+
+      res.status(200).json({ matricula });
+
+      
+    } catch (error) {
+      console.log(error);
+      res.status(400).json('Falha ao listar');
+    }
+  },
+
   async cadastrar(req, res) {
     try {
       const { nome, rg, cpf, matricula, data, observacao } = req.body;
