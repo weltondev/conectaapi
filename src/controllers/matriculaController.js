@@ -31,10 +31,12 @@
 
     async cadastrar(req, res) {
       try {
-        const { nome, rg, cpf, matricula, data, observacao } = req.body;
-        const matriculaExiste = await Matricula.findOne({ rg, cpf, matricula });
+        const { nome, rg, cpf, matricula } = req.body;
+        const matriculaExiste = await Matricula.findOne({ matricula });
+        const rgExiste = await Matricula.findOne({ rg });
+        const cpfExiste = await Matricula.findOne({ cpf });
 
-        if(matriculaExiste) {
+        if(matriculaExiste || rgExiste || cpfExiste) {
           return res.status(400).json(`Usuário já cadastrado!`);
         }
 
@@ -43,7 +45,7 @@
         res.status(201).json('Matrícula cadastrada com sucesso!');
       } catch (error) {
         console.log(error);
-        res.status(400).send(error.message);
+        res.status(400).json(error.message);
       }
     },
 
