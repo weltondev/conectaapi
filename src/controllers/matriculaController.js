@@ -36,8 +36,14 @@
         const rgExiste = await Matricula.findOne({ rg });
         const cpfExiste = await Matricula.findOne({ cpf });
 
-        if(matriculaExiste || rgExiste || cpfExiste) {
-          return res.status(400).json(`Usuário já cadastrado!`);
+        if(matriculaExiste) {
+          return res.status(400).json(`Matricula já cadastrada!`);
+        }
+        if(rgExiste) {
+          return res.status(400).json(`RG já cadastrado!`);
+        }
+        if(cpfExiste) {
+          return res.status(400).json(`CPF já cadastrado!`);
         }
 
         await Matricula.create({ nome, rg, cpf, matricula,});
