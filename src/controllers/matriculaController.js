@@ -15,7 +15,6 @@ const matriculaController = {
   async listarId(req, res){
     try {
       const { matricula } = req.params;
-      console.log(matricula)
       const infos = await Matricula.findOne({matricula});
       if(!infos) {
         res.status(400).json('Matrícula não encontrada!');
