@@ -6,7 +6,7 @@ const routes = express.Router();
 
 // Matriculas
 routes.get('/matriculas', matriculaController.listar); // Listar
-routes.get('/matriculas/:id', matriculaController.listarId); // Listar por ID
+routes.get('/matriculas/:matricula', matriculaController.listarId); // Listar por matricula
 routes.post('/matriculas', matriculaController.cadastrar); // Criar
 routes.put('/matriculas/:id', matriculaController.atualizar); // Atualizar
 routes.delete('/matriculas/:id', matriculaController.remover); // Remover

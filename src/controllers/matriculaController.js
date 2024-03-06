@@ -14,13 +14,14 @@ const matriculaController = {
 
   async listarId(req, res){
     try {
-      const { id } = req.params;
-      const matricula = await Matricula.findById(id);
-      if(!matricula) {
+      const { matricula } = req.params;
+      console.log(matricula)
+      const infos = await Matricula.findOne({matricula});
+      if(!infos) {
         res.status(400).json('Matrícula não encontrada!');
       }
 
-      res.status(200).json({ matricula });
+      res.status(200).json({infos});
 
       
     } catch (error) {
