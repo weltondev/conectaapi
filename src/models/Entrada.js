@@ -4,8 +4,6 @@ const entradaSchema = new mongoose.Schema({
   matricula: {
     type: String,
     required: true,
-    unique: true,
-    max: 6
   },
   data: {
     type: Date,
