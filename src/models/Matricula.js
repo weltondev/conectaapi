@@ -26,9 +26,6 @@ const matriculaSchema = new mongoose.Schema({
   data: {
     type: Date,
     required: true
-  },
-  observacao: {
-    type: String
   }
 })
 

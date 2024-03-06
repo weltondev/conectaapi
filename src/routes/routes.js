@@ -1,11 +1,19 @@
 const express = require('express');
 const matriculaController = require('../controllers/matriculaController');
+const entradaController = require('../controllers/entradaController');
 
 const routes = express.Router();
 
-routes.get('/matriculas', matriculaController.listar);
-routes.post('/matriculas', matriculaController.cadastrar);
-routes.put('/matriculas/:id', matriculaController.atualizar);
-routes.delete('/matriculas/:id', matriculaController.remover);
+// Matriculas
+routes.get('/matriculas', matriculaController.listar); // Listar
+routes.post('/matriculas', matriculaController.cadastrar); // Criar
+routes.put('/matriculas/:id', matriculaController.atualizar); // Atualizar
+routes.delete('/matriculas/:id', matriculaController.remover); // Remover
+
+// Entradas
+routes.get('/entradas', entradaController.listar); // Listar
+routes.post('/entradas', entradaController.cadastrar); // Criar
+routes.put('/entradas/:id', entradaController.atualizar); // Atualizar
+routes.delete('/entradas/:id', entradaController.remover); // Remover
 
 module.exports = routes
