@@ -16,7 +16,7 @@ const entradaController = {
   async cadastrar(req, res) {
     try {
       const { matricula, data, observacao } = req.body;
-      const matriculaExiste = await Matricula.find({matricula});
+      const matriculaExiste = await Matricula.findOne({matricula});
 
       if(!matriculaExiste) {
         console.log(matriculaExiste)
