@@ -15,15 +15,15 @@ const entradaController = {
 
   async cadastrar(req, res) {
     try {
-      const { matricula, data } = req.body;
+      const { matricula, data, observacao } = req.body;
       // const entrada = await Entrada.findOne({ matricula });
       const matriculaExiste = await Matricula.findOne({ matricula });
-      
+
       if(!matriculaExiste) {
-        return res.status(400).send(`Matrícula não cadastrada!`);
+        return res.status(400).json(`Matrícula não cadastrada!`);
       }
 
-      await Entrada.create({ matricula, data });
+      await Entrada.create({ matricula, data, observacao });
 
       res.status(201).send('Matrícula cadastrada com sucesso!');
     } catch (error) {
