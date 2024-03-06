@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const entradaSchema = new mongoose.Schema({
   matricula: {
     type: String,
-    required: true,
   },
   data: {
     type: Date,
