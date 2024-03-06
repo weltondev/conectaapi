@@ -21,10 +21,6 @@ const matriculaSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  data: {
-    type: Date,
-    required: true
-  }
 })
 
 const Matricula = mongoose.model("Matricula", matriculaSchema);

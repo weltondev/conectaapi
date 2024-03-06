@@ -38,7 +38,7 @@
           return res.status(400).json(`Usuário já cadastrado!`);
         }
 
-        await Matricula.create({ nome, rg, cpf, matricula, data, observacao });
+        await Matricula.create({ nome, rg, cpf, matricula,});
 
         res.status(201).json('Matrícula cadastrada com sucesso!');
       } catch (error) {
