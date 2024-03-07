@@ -13,8 +13,6 @@ const entradaController = {
     }
   },
 
-
-
   async cadastrar(req, res) {
     try {
       const { matricula, data, observacao } = req.body;
@@ -37,8 +35,9 @@ const entradaController = {
   async atualizar(req, res) {
     try {
       const { id } = req.params;
+      const { matricula, data, observacao } = req.body;
 
-      const userExist = await Entrada.findById(id);
+      const userExist = await Entrada.findById(id, { matricula, data, observacao });
 
       if(!userExist){
        return res.status(400).json(`Matrícula não encontrada!`);
