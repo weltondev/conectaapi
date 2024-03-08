@@ -46,9 +46,9 @@
           return res.status(400).json(`CPF já cadastrado!`);
         }
 
-        await Matricula.create({ nome, rg, cpf, matricula,});
+        const novaMatricula = await Matricula.create({ nome, rg, cpf, matricula,});
 
-        res.status(201).json('Matrícula cadastrada com sucesso!');
+        res.status(201).json('Matrícula cadastrada com sucesso!', { novaMatricula });
       } catch (error) {
         console.log(error);
         res.status(400).json(error.message);
