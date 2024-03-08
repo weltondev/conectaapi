@@ -48,7 +48,7 @@
 
         const novaMatricula = await Matricula.create({ nome, rg, cpf, matricula,});
 
-        res.status(201).json('Matrícula cadastrada com sucesso!', { novaMatricula });
+        res.status(201).json({ novaMatricula });
       } catch (error) {
         console.log(error);
         res.status(400).json(error.message);
