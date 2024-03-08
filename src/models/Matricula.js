@@ -21,7 +21,7 @@ const matriculaSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-})
+});
 
 const Matricula = mongoose.model("Matricula", matriculaSchema);
 
