@@ -29,6 +29,23 @@
       }
     },
 
+    async listarCPF(req, res){
+      try {
+        const { cpf } = req.params;
+        const infos = await Matricula.findOne({cpf});
+        if(!infos) {
+          res.status(400).json('Matrícula não encontrada!');
+        }
+
+        res.status(200).json({infos});
+
+        
+      } catch (error) {
+          console.log(error);
+        res.status(400).json('Falha ao listar');
+      }
+    },
+
     async cadastrar(req, res) {
       try {
         const { nome, rg, cpf, matricula } = req.body;
